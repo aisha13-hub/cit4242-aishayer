@@ -14,4 +14,12 @@ public class CatalogueTest {
         List<Book> books = catalogue.getBooks();
         assertEquals(3, books.size());
     }
+    @Test
+    void titlesBy_unknownAuthor_returnsEmptyList() {
+        Catalogue catalogue = new Catalogue(new InMemoryBookSource());
+
+        List<String> result = catalogue.titlesBy("Nobody Real");
+
+        assertTrue(result.isEmpty());
+    }
 }
